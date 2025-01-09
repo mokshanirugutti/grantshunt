@@ -47,7 +47,7 @@ const RegisterPage: React.FC = () => {
 
   return (
     <div className="h-screen w-screen flex justify-center items-center">
-      <div className="px-20 py-10 max-w-xl">
+      <div className="px-10 py-10 max-w-xl">
         {stage === 1 && (
           <RegisterStage1 
             orgDetails={orgDetails}

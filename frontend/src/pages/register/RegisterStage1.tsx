@@ -2,6 +2,9 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import RequiredInput from "@/components/ui/RequiredInput";
 import { Link } from "react-router";
+import DropDownDescInput from "@/components/ui/dropDownDesc";
+import MultipleSelects from "@/components/ui/multipleSelects";
+import DropDownSelect from "@/components/ui/dropDownSelect";
 
 interface RegisterStage1Props {
   orgDetails: {
@@ -17,11 +20,10 @@ interface RegisterStage1Props {
 const RegisterStage1: React.FC<RegisterStage1Props> = ({ orgDetails, handleOrgChange, onNext }) => {
   return (
     <>
-      <h1 className="text-2xl font-semibold my-2 text-center">Register</h1>
-      <h1 className="text-2xl font-semibold my-2">Enter your organization details</h1>
+      <h1 className="text-2xl font-semibold my-4">Enter your organization details</h1>
 
       <form className="flex flex-col gap-4" onSubmit={(e) => { e.preventDefault(); onNext(); }}>
-        <div className="flex gap-4 flex-wrap mx-auto w-fit px-3">
+        <div className="flex gap-4 flex-wrap mx-auto w-fit px-3 justify-between">
           <RequiredInput
             title="Name"
             placeholder="Your organization name"
@@ -30,22 +32,19 @@ const RegisterStage1: React.FC<RegisterStage1Props> = ({ orgDetails, handleOrgCh
             name="name"
             onChange={handleOrgChange}
           />
-          <RequiredInput
+          <DropDownDescInput
             title="Size"
-            placeholder="Your organization size"
-            type="number"
             value={orgDetails.size}
             name="size"
             onChange={handleOrgChange}
           />
-          <RequiredInput
-            title="Sector"
-            placeholder="E.g., technology, healthcare, education"
-            type="text"
-            value={orgDetails.sector}
-            name="sector"
-            onChange={handleOrgChange}
+
+          <DropDownSelect
+            title="Select Organization Type"
+
           />
+          
+
           <RequiredInput
             title="Geographic Location"
             placeholder="Country, province, or city"
@@ -53,6 +52,10 @@ const RegisterStage1: React.FC<RegisterStage1Props> = ({ orgDetails, handleOrgCh
             value={orgDetails.location}
             name="location"
             onChange={handleOrgChange}
+          />
+
+          <MultipleSelects 
+          title="Organization Sector"
           />
         </div>
         <div className="flex justify-between">

@@ -21,7 +21,7 @@ const RequiredInput: React.FC<RequiredInputProps> = ({
 }) => {
   const id = `${name}-${useId()}`;
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 w-56 my-2">
       <Label htmlFor={id}>
         {title} <span className="text-destructive">*</span>
       </Label>

@@ -32,27 +32,32 @@ export default function DatePickerInput({ title, name, onChange }: DatePickerInp
   };
 
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          variant={"outline"}
-          className={cn(
-            "w-[240px] justify-start text-left font-normal",
-            !selectedDate && "text-muted-foreground"
-          )}
-        >
-          <CalendarIcon />
-          {selectedDate ? format(selectedDate, "PPP") : <span>{title}</span>}
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-auto p-0" align="start">
-        <Calendar
-          mode="single"
-          selected={selectedDate}
-          onSelect={handleDateChange} // Use the new handleDateChange function
-          initialFocus
-        />
-      </PopoverContent>
-    </Popover>
+    <div>
+        <div className="flex items-center gap-2">
+          <label className="text-sm font-medium my-1">{title} <span className="text-destructive">*</span></label>
+        </div>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant={"outline"}
+                className={cn(
+                  "w-[240px] justify-start text-left font-normal",
+                  !selectedDate && "text-muted-foreground"
+                )}
+              >
+                <CalendarIcon />
+                {selectedDate ? format(selectedDate, "PPP") : <span>{title}</span>}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-auto p-0" align="start">
+              <Calendar
+                mode="single"
+                selected={selectedDate}
+                onSelect={handleDateChange} // Use the new handleDateChange function
+                initialFocus
+                />
+            </PopoverContent>
+          </Popover>
+          </div>
   )
 }
