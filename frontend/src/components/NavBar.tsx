@@ -3,6 +3,7 @@ import React from 'react'
 import { MenuIcon, X } from "lucide-react";
 import { useState } from "react";
 import { ModeToggle } from './mode-toggle'
+import { Link } from 'react-router';
 
 const NavBar : React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,9 @@ const NavBar : React.FC = () => {
             </div>
             <div className="hidden md:flex gap-4 min-w-fit">
                 <button className="hover:bg-white hover:text-[#7F56D9] text-base transition-all ease-in-out duration-150 px-4 py-2 rounded-md">Log in</button>
-                <button className="bg-[#7F56D9] hover:bg-[#6941c6] px-4 py-2 rounded-md text-base text-white font-semibold transition-all ease-in-out duration-150">Sign up</button>
+                <Link to="/register">
+                    <button className="bg-[#7F56D9] hover:bg-[#6941c6] px-4 py-2 rounded-md text-base text-white font-semibold transition-all ease-in-out duration-150">Sign up</button>
+                </Link>
                 <ModeToggle/>
             </div>
 
