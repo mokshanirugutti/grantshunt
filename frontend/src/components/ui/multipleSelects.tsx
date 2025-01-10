@@ -1,7 +1,8 @@
 import { Label } from "@/components/ui/label";
 import MultipleSelector, { Option } from "@/components/ui/multiselect";
+import { useId } from "react";
 
-const frameworks: Option[] = [
+const sectors: Option[] = [
   {
     value: "Arts",
     label: "Arts",
@@ -70,20 +71,25 @@ const frameworks: Option[] = [
 
 interface MultipleSelectsProps {
   title :string
+  name : string
+  onChange : (e : React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export default function MultipleSelects({ title  }: MultipleSelectsProps) {
+export default function MultipleSelects({ title , name, onChange  }: MultipleSelectsProps) {
+  const id = `${name}-${useId()}`;
   return (
     <div className="space-y-2 w-full">
-      <Label>{title} <span className="text-destructive">*</span> </Label>
+      <Label htmlFor={id}>{title} <span className="text-destructive">*</span> </Label>
       <MultipleSelector
+        id={id}
         commandProps={{
           label: `Select ${title}`,
         }}
-        defaultOptions={frameworks}
+        defaultOptions={sectors}
         placeholder={`Select ${title} (5 max)`}
         maxSelected={5}
         emptyIndicator={<p className="text-center text-sm">No results found</p>}
+        selectedSectors={onChange}
       />
       
     </div>

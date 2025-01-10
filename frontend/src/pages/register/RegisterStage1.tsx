@@ -10,8 +10,9 @@ interface RegisterStage1Props {
   orgDetails: {
     name: string;
     size: string;
-    sector: string;
+    type: string;
     location: string;
+    sector: string[];
   };
   handleOrgChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onNext: () => void;
@@ -34,14 +35,14 @@ const RegisterStage1: React.FC<RegisterStage1Props> = ({ orgDetails, handleOrgCh
           />
           <DropDownDescInput
             title="Size"
-            value={orgDetails.size}
             name="size"
             onChange={handleOrgChange}
           />
 
           <DropDownSelect
             title="Select Organization Type"
-
+            name="type"
+            onChange={handleOrgChange}
           />
           
 
@@ -56,6 +57,8 @@ const RegisterStage1: React.FC<RegisterStage1Props> = ({ orgDetails, handleOrgCh
 
           <MultipleSelects 
           title="Organization Sector"
+          name="sector"
+          onChange={handleOrgChange}
           />
         </div>
         <div className="flex justify-between">

@@ -20,6 +20,8 @@ interface GroupOption {
 }
 
 interface MultipleSelectorProps {
+  id : string;
+  selectedSectors : (e : React.ChangeEvent<HTMLInputElement>) => void;
   value?: Option[];
   defaultOptions?: Option[];
   /** manually controlled options */
@@ -165,6 +167,7 @@ CommandEmpty.displayName = "CommandEmpty";
 const MultipleSelector = React.forwardRef<MultipleSelectorRef, MultipleSelectorProps>(
   (
     {
+      id,
       value,
       onChange,
       placeholder,
@@ -188,6 +191,7 @@ const MultipleSelector = React.forwardRef<MultipleSelectorRef, MultipleSelectorP
       commandProps,
       inputProps,
       hideClearAllButton = false,
+      selectedSectors
     }: MultipleSelectorProps,
     ref: React.Ref<MultipleSelectorRef>,
   ) => {
@@ -210,7 +214,7 @@ const MultipleSelector = React.forwardRef<MultipleSelectorRef, MultipleSelectorP
         selectedValue: [...selected],
         input: inputRef.current as HTMLInputElement,
         focus: () => inputRef?.current?.focus(),
-        reset: () => setSelected([]),
+        reset: () => {setSelected([]), selectedSectors},
       }),
       [selected],
     );
@@ -422,6 +426,7 @@ const MultipleSelector = React.forwardRef<MultipleSelectorRef, MultipleSelectorP
 
     return (
       <Command
+      id={id}
         ref={dropdownRef}
         {...commandProps}
         onKeyDown={(e) => {

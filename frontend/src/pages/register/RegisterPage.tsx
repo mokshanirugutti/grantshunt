@@ -8,8 +8,9 @@ const RegisterPage: React.FC = () => {
   const [orgDetails, setOrgDetails] = useState({
     name: "",
     size: "",
-    sector: "",
+    type: "",
     location: "",
+    sector: [],
   });
   const [fundingDetails, setFundingDetails] = useState({
     objectives: "",

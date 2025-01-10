@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button"; 
 import RequiredInput from "@/components/ui/RequiredInput"; 
-import DatePickerInput from "@/components/ui/DatePickerInput";
+// import DatePickerInput from "@/components/ui/DatePickerInput";
 
 
 interface RegisterStage2Props {
