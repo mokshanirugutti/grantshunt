@@ -56,7 +56,7 @@ const RegisterStage2: React.FC<RegisterStage2Props> = ({ orgName,fundingDetails,
             Back
           </Button>
           <Button variant={"default"} className="px-5 py-2 w-fit" type="submit">
-            Submit
+            Next
           </Button>
         </div>
       </form>

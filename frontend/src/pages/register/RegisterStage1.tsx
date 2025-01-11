@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import RequiredInput from "@/components/ui/RequiredInput";
 import { Link } from "react-router";
 import DropDownDescInput from "@/components/ui/dropDownDesc";
-import MultipleSelects from "@/components/ui/multipleSelects";
 import DropDownSelect from "@/components/ui/dropDownSelect";
+import NextUIMultiSelects from "@/components/ui/nextUImultiSelects";
 
 interface RegisterStage1Props {
   orgDetails: {
@@ -12,13 +12,13 @@ interface RegisterStage1Props {
     size: string;
     type: string;
     location: string;
-    sector: string[];
   };
   handleOrgChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSectorChange:  React.Dispatch<React.SetStateAction<Set<string>>>;
   onNext: () => void;
 }
 
-const RegisterStage1: React.FC<RegisterStage1Props> = ({ orgDetails, handleOrgChange, onNext }) => {
+const RegisterStage1: React.FC<RegisterStage1Props> = ({ orgDetails, handleOrgChange, onNext, handleSectorChange }) => {
   return (
     <>
       <h1 className="text-2xl font-semibold my-4">Enter your organization details</h1>
@@ -55,10 +55,10 @@ const RegisterStage1: React.FC<RegisterStage1Props> = ({ orgDetails, handleOrgCh
             onChange={handleOrgChange}
           />
 
-          <MultipleSelects 
+          <NextUIMultiSelects
           title="Organization Sector"
           name="sector"
-          onChange={handleOrgChange}
+          onChange={handleSectorChange}
           />
         </div>
         <div className="flex justify-between">

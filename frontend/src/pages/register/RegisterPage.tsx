@@ -3,14 +3,23 @@ import RegisterStage1 from "./RegisterStage1";
 import RegisterStage2 from "./RegisterStage2";
 import RegisterStage3 from "./RegisterStage3";
 
+
+interface OrgDetails {
+  name: string;
+  size: string;
+  type: string;
+  location: string;
+}
+
 const RegisterPage: React.FC = () => {
   const [stage, setStage] = useState(1); 
-  const [orgDetails, setOrgDetails] = useState({
+  const [orgSector, setorgSector] = useState<Set<string>>(new Set([]))
+
+  const [orgDetails, setOrgDetails] = useState<OrgDetails>({
     name: "",
     size: "",
     type: "",
     location: "",
-    sector: [],
   });
   const [fundingDetails, setFundingDetails] = useState({
     objectives: "",
@@ -41,9 +50,12 @@ const RegisterPage: React.FC = () => {
 
   const handleSubmit = () => {
     console.log("handle submit got clicked!!!!!!!")
-    console.log({ orgDetails, fundingDetails, orgAccountDetails });
-
-    
+    console.log({
+      orgDetails,
+      orgSector: Array.from(orgSector), 
+      fundingDetails,
+      orgAccountDetails,
+    });
   };
 
   return (
@@ -53,6 +65,7 @@ const RegisterPage: React.FC = () => {
           <RegisterStage1 
             orgDetails={orgDetails}
             handleOrgChange={handleOrgChange}
+            handleSectorChange={setorgSector}
             onNext={() => setStage(2)}
             />
         )}
