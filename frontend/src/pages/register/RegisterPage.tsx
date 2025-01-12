@@ -24,7 +24,7 @@ const RegisterPage: React.FC = () => {
   const [fundingDetails, setFundingDetails] = useState({
     objectives: "",
     years: "",
-    deadline:"",
+    
   });
   const [orgAccountDetails, setorgAccountDetails] = useState({
     email: "",
@@ -51,10 +51,10 @@ const RegisterPage: React.FC = () => {
   const handleSubmit = () => {
     console.log("handle submit got clicked!!!!!!!")
     console.log({
-      orgDetails,
+      ...orgDetails,
       orgSector: Array.from(orgSector), 
-      fundingDetails,
-      orgAccountDetails,
+      ...fundingDetails,
+      ...orgAccountDetails,
     });
   };
 

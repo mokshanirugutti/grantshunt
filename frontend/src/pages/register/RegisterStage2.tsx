@@ -9,7 +9,7 @@ interface RegisterStage2Props {
   fundingDetails: {
     objectives: string;
     years: string;
-    deadline: string;
+    
   };
   handleFundingChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBack: () => void; 
@@ -45,11 +45,7 @@ const RegisterStage2: React.FC<RegisterStage2Props> = ({ orgName,fundingDetails,
           name="years"
           onChange={handleFundingChange}
           />
-        {/* <DatePickerInput
-          title="Deadline"
-          name="deadline"
-          onChange={handleFundingChange}
-          /> */}
+        
         </div>
         <div className="flex justify-end gap-4">
           <Button variant="outline" className="px-5 py-2 w-fit" onClick={onBack}>

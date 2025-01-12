@@ -28,11 +28,11 @@ export default function DropDownSelect({title, name, onChange}: DropDownSelectPr
   };
 
   return (
-    <div className="space-y-2 w-56">
+    <div className="space-y-2 w-56 my-2">
       <Label htmlFor={id}>
         {title} <span className="text-destructive">*</span>
       </Label>
-      <Select defaultValue="select" required onValueChange={handleValueChange}>
+      <Select required onValueChange={handleValueChange}>
         <SelectTrigger id={id}>
           <SelectValue placeholder="Select Type" />
         </SelectTrigger>
@@ -42,7 +42,6 @@ export default function DropDownSelect({title, name, onChange}: DropDownSelectPr
           <SelectItem value="Government">Government</SelectItem>
           <SelectItem value="Educational">Educational</SelectItem>
           <SelectItem value="Healthcare">Healthcare</SelectItem>
-          <SelectItem value="select" disabled className="hidden">---Select---</SelectItem>
         </SelectContent>
       </Select>
     </div>
