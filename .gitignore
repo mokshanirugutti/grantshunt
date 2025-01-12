@@ -1,3 +1,5 @@
 
 .codegpt
 env
+.env 
+__pycache__/
