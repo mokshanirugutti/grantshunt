@@ -1,16 +1,23 @@
-import React from 'react'
+import { LinkedinIcon, InstagramIcon, TwitterIcon } from 'lucide-react';
+import React from 'react';
+import { Link } from 'react-router';
 
-const Footer : React.FC = () => {
+const Footer: React.FC = () => {
   return (
-    <div className='h-56 flex justify-evenly pagePadding'>
-      <div>
-        Grants
+    <footer className="bg-neutral-900 text-white py-4">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div className="mb-4 md:mb-0">
+          <Link to="/" className="text-xl font-bold">Grants</Link>
+          <p>© 2025 Grants. All rights reserved.</p>
+        </div>
+        <div className="flex space-x-4">
+          <LinkedinIcon/>
+          <InstagramIcon/>
+          <TwitterIcon/>
+        </div>
       </div>
-      <div>
-        Footer
-      </div>
-    </div>
-  )
-}
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;
