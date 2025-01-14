@@ -14,7 +14,9 @@ const NavBar : React.FC = () => {
   return (
     <div className="w-full flex justify-between py-4 items-center pagePadding sticky top-0 z-50 backdrop-blur-lg">
             <div className="w-full  flex mx-auto justify-between items-center">
-            <h1 className="text-2xl ">Grants</h1>
+            <Link to="/" >
+                <h1 className="text-2xl font-semibold tracking-wide">Grants</h1>
+            </Link>
             <div className="hidden md:flex gap-6 min-w-fit">
                 <a href="" className="hover:text-[#344054]">Fundings</a>
                 <a href="" className="hover:text-[#344054]">Programs </a>

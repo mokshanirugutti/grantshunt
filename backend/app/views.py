@@ -4,6 +4,8 @@ from rest_framework import status
 from django.contrib.auth import authenticate
 from .models import Organization, Grants
 from .serializers import OrganizationRegisterSerializer, LoginSerializer, GrantsSerializer
+from django.http import JsonResponse
+
 
 class OrganizationRegisterView(APIView):
     def post(self, request):
@@ -29,4 +31,10 @@ class GrantsView(APIView):
     def get(self,request):
         grants = Grants.objects.all()
         serializer = GrantsSerializer(grants, many=True)
+        # print(f'data = {serializer.data}')
         return Response(serializer.data)
+    
+class testView(APIView):
+    def get(self,request):
+        data = {'message': 'Success', 'data': [{'key': 'value1'}, {'key2': 'value2'}]}
+        return JsonResponse(data)

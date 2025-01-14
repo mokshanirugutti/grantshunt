@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 const AboutPage  : React.FC = () => {
   return (
@@ -21,7 +22,9 @@ const AboutPage  : React.FC = () => {
 
         <div className='my-10 py-20 text-center h-64'>
             <h1 className='text-xl  md:text-2xl lg:text-3xl font-semibold'>Ready for Funding</h1>
-            <button className='px-10 py-2 bg-foreground text-background rounded-md hover:rounded-xl transition-all duration-200 ease-in-out my-4 font-medium tracking-wide hover:scale-105' >Start Search</button>
+            <Link to='/search'>
+                <button className='px-10 py-2 bg-foreground text-background rounded-md hover:rounded-xl transition-all duration-200 ease-in-out my-4 font-medium tracking-wide hover:scale-105' >Start Search</button>
+            </Link>
         </div>
     </div>
   )
