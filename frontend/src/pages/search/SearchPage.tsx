@@ -1,20 +1,20 @@
-import { CustomSearchComponent } from '@/components/CustomSearch'
-import React from 'react'
-import AllGrants from './AllGrants'
+import React, { useState } from "react";
+import AllGrants from "./AllGrants";
+import { CustomSearchComponent } from "@/components/CustomSearch";
 
-const SearchPage : React.FC = () => {
-
+const SearchPage: React.FC = () => {
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   return (
-    <div className='pagePadding ' >
+    <div className="pagePadding">
       <div>
-        <CustomSearchComponent/>
+        <CustomSearchComponent onSearch={setSearchQuery} />
       </div>
-      <div className='p-10'>
-        <AllGrants/>
+      <div className="p-10">
+        <AllGrants searchQuery={searchQuery} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SearchPage
+export default SearchPage;
