@@ -1,3 +1,4 @@
+import LottieCoins from '@/components/lottieAnimations/LottieCoins'
 import React from 'react'
 import { Link } from 'react-router'
 
@@ -13,10 +14,15 @@ const AboutPage  : React.FC = () => {
                 </p>
         </div>
         
-        <div className='my-10 py-20'>
-            <h1 className='text-2xl my-3 font-semibold'>MEET OUR SOLUTION </h1>
-            <div className='w-full md:w-1/3 leading-6'>
-                We provide best personalized recommendations for funding opportunities based on your organization's needs and budget.We also provide a user-friendly interface that makes it easy to navigate and search for funding opportunities.
+        <div className='my-10 py-20 flex  items-center justify-around w-full'>
+            <div className=' w-96'>
+                <h1 className='text-2xl my-3 font-semibold'>MEET OUR SOLUTION </h1>
+                <div className=''>
+                    We provide best personalized recommendations for funding opportunities based on your organization's needs and budget.We also provide a user-friendly interface that makes it easy to navigate and search for funding opportunities.
+                </div>
+            </div>
+            <div className=' '>
+                <LottieCoins/>
             </div>
         </div>
 
