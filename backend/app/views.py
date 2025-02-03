@@ -43,5 +43,5 @@ class GrantsView(APIView):
 
 class testView(APIView):
     def get(self,request):
-        data = {'message': 'Success', 'data': [{'key': 'value1'}, {'key2': 'value2'}]}
+        data = {'message': 'Running good'}
         return JsonResponse(data)
