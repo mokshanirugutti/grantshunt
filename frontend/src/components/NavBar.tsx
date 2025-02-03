@@ -18,13 +18,13 @@ const NavBar : React.FC = () => {
                 <h1 className="text-2xl font-semibold tracking-wide">Grants</h1>
             </Link>
             <div className="hidden md:flex gap-6 min-w-fit">
-                <a href="" className="hover:text-[#344054]">Fundings</a>
-                <a href="" className="hover:text-[#344054]">Programs </a>
-                <a href="" className="hover:text-[#344054]">Contact Us</a>
-                <a href="" className="hover:text-[#344054]">About Us</a>
+                <a href="" className="hover:translate-y-1 transition-all ease-in-out duration-200">Fundings</a>
+                <a href="" className="hover:translate-y-1 transition-all ease-in-out duration-200">Programs </a>
+                <a href="" className="hover:translate-y-1 transition-all ease-in-out duration-200">Contact Us</a>
+                <a href="" className="hover:translate-y-1 transition-all ease-in-out duration-200">About Us</a>
             </div>
             <div className="hidden md:flex gap-4 min-w-fit">
-                <button className="hover:bg-white hover:text-[#7F56D9] text-base transition-all ease-in-out duration-150 px-4 py-2 rounded-md">Log in</button>
+                {/* <button className="hover:bg-white hover:text-[#7F56D9] text-base transition-all ease-in-out duration-150 px-4 py-2 rounded-md">Log in</button> */}
                 <Link to="/register">
                     <button className="bg-[#7F56D9] hover:bg-[#6941c6] px-4 py-2 rounded-md text-base text-white font-semibold transition-all ease-in-out duration-150">Sign up</button>
                 </Link>
