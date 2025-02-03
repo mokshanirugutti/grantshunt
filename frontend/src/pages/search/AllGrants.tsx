@@ -58,6 +58,7 @@ const AllGrants: React.FC<AllGrantsProps> = ({ searchQuery }) => {
       {filteredGrants.map((grant) => (
         <GrantsCard
           key={grant.id}
+          id={grant.id}
           title={grant.title}
           deadline={grant.end_date}
           description={grant.description}

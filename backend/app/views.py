@@ -28,12 +28,19 @@ class LoginView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class GrantsView(APIView):
-    def get(self,request):
-        grants = Grants.objects.all()
-        serializer = GrantsSerializer(grants, many=True)
-        # print(f'data = {serializer.data}')
-        return Response(serializer.data)
-    
+    def get(self, request, grant_id=None):
+        if grant_id:
+            try:
+                grant = Grants.objects.get(id=grant_id)
+                serializer = GrantsSerializer(grant)
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            except Grants.DoesNotExist:
+                return Response({'error': 'Grant not found'}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            grants = Grants.objects.all()
+            serializer = GrantsSerializer(grants, many=True)
+            return Response(serializer.data)
+
 class testView(APIView):
     def get(self,request):
         data = {'message': 'Success', 'data': [{'key': 'value1'}, {'key2': 'value2'}]}

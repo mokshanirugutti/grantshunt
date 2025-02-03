@@ -1,14 +1,14 @@
-
 import {Card, CardHeader, CardBody, CardFooter, Divider, Link} from "@nextui-org/react";
 
 
 interface GrantsCardProps {
+    id: number
     title : string
     deadline:string
     description:string 
 }
 
-export default function GrantsCard({title,deadline,description}:GrantsCardProps) {
+export default function GrantsCard({id, title, deadline, description}:GrantsCardProps) {
   return (
     <Card className="max-w-[400px]">
       <CardHeader className="flex gap-3">
@@ -23,7 +23,7 @@ export default function GrantsCard({title,deadline,description}:GrantsCardProps)
       </CardBody>
       <Divider />
       <CardFooter>
-        <Link isExternal showAnchorIcon href="/grants/id">
+        <Link isExternal showAnchorIcon href={`/grants/${id}`}>
           View More
         </Link>
       </CardFooter>
